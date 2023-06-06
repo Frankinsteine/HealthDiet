@@ -1,9 +1,11 @@
 package com.example.healthdiet.repository
 
 import android.content.Context
+import android.util.Log
 import com.example.healthdiet.models.RecipeDetail
 import org.jsoup.Jsoup
 import com.example.healthdiet.models.RecipeItem
+import com.example.healthdiet.models.RecipeStep
 import java.io.IOException
 
 class Repo {
@@ -43,16 +45,18 @@ class Repo {
                 val desc = recipes.select("div.preview-text")
                     .eq(i)
                     .text()
-                val eventUrl =
+                val recipeUrl =
                     "https://1000.menu/" + recipes.select("div.info-preview")
-                        .select("a")
+                        .select("a.h5")
                         .eq(i)
                         .attr("href")
                 val image = "https:" + recipes.select("div.photo.is-relative")
                     .select("img.native")
                     .eq(i)
                     .attr("src")
-                listData.add(RecipeItem(i, title, time, energyValue, desc, image, eventUrl))
+                if(title.isNotEmpty() && time.isNotEmpty() && energyValue.isNotEmpty() && desc.isNotEmpty() && image.isNotEmpty() && recipeUrl.isNotEmpty()) {
+                    listData.add(RecipeItem(i, title, time, energyValue, desc, image, recipeUrl))
+                }
             }
         } catch (e: IOException) {
             e.printStackTrace()
@@ -82,7 +86,35 @@ class Repo {
             e.printStackTrace()
         }
         return item
+    }
 
+    fun getStepsList (url: String): MutableList<RecipeStep> {
+        val listData = mutableListOf<RecipeStep>()
+        //val url = "https://1000.menu/cooking/40714-kabachki-zapechennye-s-pomidorami-i-syrom-v-duxovke"
+        try {
+            val doc = Jsoup.connect(url).get()
+            val steps = doc.select("ol.instructions").select("li")
+            val stepsSize = steps.size
+            for(i in 0 until stepsSize) {
+                val document = Jsoup.connect(url).get()
+                val title = document.select("h4")
+                    .eq(i)
+                    .text()
+                val image = "https:" + document.select("a.step-img.foto_gallery")
+                    .eq(i)
+                    .attr("href")
+                val desc =document.select("p.instruction")
+                    .eq(i)
+                    .text()
+                if(title.isNotEmpty() && image.isNotEmpty() && desc.isNotEmpty()) {
+                    Log.d("imgStep", "$image")
+                    listData.add(RecipeStep(title, image, desc))
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return listData
     }
 
 }

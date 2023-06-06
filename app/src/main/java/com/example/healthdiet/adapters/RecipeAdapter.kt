@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthdiet.databinding.RecipeItemBinding
 import com.example.healthdiet.fragments.HomeFragmentDirections
 import com.example.healthdiet.models.RecipeItem
+import com.example.healthdiet.models.RecipeStep
 import com.squareup.picasso.Picasso
 
 class RecipeAdapter(private val context: Context): RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
@@ -18,6 +19,12 @@ class RecipeAdapter(private val context: Context): RecyclerView.Adapter<RecipeAd
         items = data
         notifyDataSetChanged()
     }
+    private var steps = mutableListOf<RecipeStep>()
+    fun setStepData(data: MutableList<RecipeStep>) {
+        steps = data
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -34,8 +41,6 @@ class RecipeAdapter(private val context: Context): RecyclerView.Adapter<RecipeAd
     inner class ViewHolder(val binding: RecipeItemBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: RecipeItem) = with(itemView) {
-            //use two way binding
-            //BR - is auto-generating class
             binding.setVariable(BR.item, item)
             // apply changes
             binding.executePendingBindings()

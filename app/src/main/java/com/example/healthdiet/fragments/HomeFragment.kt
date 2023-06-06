@@ -30,11 +30,11 @@ class HomeFragment : Fragment() {
         adapter = RecipeAdapter(requireActivity())
         binding.recyclerView.adapter = adapter
 
-        //important: in fragment need set owner viewLifecycleOwner
         viewModel.fetchData().observe(viewLifecycleOwner, Observer {
             adapter.setListData(it)
             binding.progressBar.visibility = View.GONE
         })
+
 
         return binding.root
     }
