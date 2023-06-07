@@ -29,7 +29,8 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = binding.textView3
+        //textView.text = "В новой версии приложения исправлены неверная загрузка изображений и отображение шагов рецепта"
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
