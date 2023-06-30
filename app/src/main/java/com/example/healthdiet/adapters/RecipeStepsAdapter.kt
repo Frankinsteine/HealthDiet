@@ -44,5 +44,4 @@ class RecipeStepsAdapter(private val context: Context): RecyclerView.Adapter<Rec
         }
 
     }
-
 }

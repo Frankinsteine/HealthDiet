@@ -37,26 +37,26 @@
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/ingredientsTextView"
+                    android:id="@+id/time_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
-                    android:text="ingredients"
+                    android:text="time"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/dateTextView"
+                    android:id="@+id/energy_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
-                    android:text="date" />
+                    android:text="energy" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/ticketTextView"
+                    android:id="@+id/ingredients_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"

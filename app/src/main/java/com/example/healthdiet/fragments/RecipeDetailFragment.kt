@@ -34,21 +34,21 @@ class RecipeDetailFragment : Fragment() {
         val item = args.recipeItem
 
         binding.titleTextView.text = item!!.title
-        binding.ingredientsTextView.text = item.time
-        binding.dateTextView.text = item.energy
+        binding.timeTv.text = item.time
+        binding.energyTv.text = item.energy
         Picasso.get().load(item.image).into(binding.imageView)
         viewModel.fetchRecipe(item.url).observe(viewLifecycleOwner, Observer {
-            binding.ticketTextView.text = it.ingredients
+            binding.ingredientsTv.text = it.ingredients
             binding.detailTextView.text = it.detail
             binding.progressLayout.visibility = View.GONE
         })
         binding.recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         adapter = RecipeStepsAdapter(requireActivity())
         binding.recyclerView.adapter = adapter
+        binding.progressBar.visibility = View.GONE
 
         viewModel.fetchRecipeStep(item.url).observe(viewLifecycleOwner){
             adapter.setListData(it)
-            Log.d("stepsAdapter", "$it")
             binding.progressBar.visibility = View.GONE
         }
 

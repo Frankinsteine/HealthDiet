@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthdiet.databinding.RecipeItemBinding
 import com.example.healthdiet.fragments.HomeFragmentDirections
 import com.example.healthdiet.models.RecipeItem
-import com.example.healthdiet.models.RecipeStep
 import com.squareup.picasso.Picasso
 
 class RecipeAdapter(private val context: Context): RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
@@ -17,11 +16,6 @@ class RecipeAdapter(private val context: Context): RecyclerView.Adapter<RecipeAd
     private var items = mutableListOf<RecipeItem>()
     fun setListData(data: MutableList<RecipeItem>) {
         items = data
-        notifyDataSetChanged()
-    }
-    private var steps = mutableListOf<RecipeStep>()
-    fun setStepData(data: MutableList<RecipeStep>) {
-        steps = data
         notifyDataSetChanged()
     }
 

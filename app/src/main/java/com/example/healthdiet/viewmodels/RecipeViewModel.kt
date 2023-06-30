@@ -39,7 +39,6 @@ class RecipeViewModel: ViewModel() {
         viewModelScope.launch(IO) {
             item.postValue(repo.getRecipe(url))
         }
-        Log.d("fetchRecipe", "$item")
         return item
     }
 
@@ -47,7 +46,6 @@ class RecipeViewModel: ViewModel() {
         viewModelScope.launch(IO) {
             steps.postValue(repo.getStepsList(url))
         }
-        Log.d("fetchSteps", "$steps")
         return steps
     }
 }

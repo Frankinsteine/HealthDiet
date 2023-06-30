@@ -12,9 +12,9 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="Выбрана диета: Стол №2"
+        android:text="Выберите диету"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,22 +38,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Список разрешённых продуктов"
-        app:layout_constraintBottom_toTopOf="@+id/whiteList_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usingWhiteList_switch"
-        app:layout_constraintVertical_bias="0.83"/>
-
-    <Button
-        android:id="@+id/whiteList_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Список периодически разрешённых продуктов"
-        app:layout_constraintBottom_toTopOf="@+id/redList_btn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeDiet_btn"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <Button
         android:id="@+id/redList_btn"
@@ -62,24 +52,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:text="Список запрещённых продуктов"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeDiet_btn"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <Switch
-        android:id="@+id/usingWhiteList_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="60dp"
-        android:scrollbarSize="4dp"
-        android:text="Использовать периодически разрешённые продукты при поиске"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeDiet_btn"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.271" />
 
     <TextView
         android:id="@+id/textView2"
@@ -87,8 +63,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redList_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/redList_btn"
+        app:layout_constraintVertical_bias="0.898" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
